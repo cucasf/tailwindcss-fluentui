@@ -10,7 +10,7 @@ Add typography, alias, base, High Contrast mode using build-in plugins.
 ## Installation
 
 ```
-npm install -D @tailwindcss/fluentui
+npm install -D tailwindcss-fluentui
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ const brand = {
   160: `#ebf3fc`,
 }
 
-import { defaultAliasPluginOptions } from '@tailwindcss/fluentui/plugins/options'
+import { defaultAliasPluginOptions } from 'tailwindcss-fluentui/plugins/options'
 
 // Required to use custom colors in alias plugin
 defaultAliasPluginOptions.colors.brand = brand
@@ -54,11 +54,11 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/fluentui'),
-    require('@tailwindcss/fluentui/plugins/alias')(defaultAliasPluginOptions),
-    require('@tailwindcss/fluentui/plugins/typography'),
-    require('@tailwindcss/fluentui/plugins/base'),
-    require('@tailwindcss/fluentui/plugins/hcMode'),
+    require('tailwindcss-fluentui'),
+    require('tailwindcss-fluentui/plugins/alias')(defaultAliasPluginOptions),
+    require('tailwindcss-fluentui/plugins/typography'),
+    require('tailwindcss-fluentui/plugins/base'),
+    require('tailwindcss-fluentui/plugins/hcMode'),
   ],
 }
 
@@ -72,7 +72,7 @@ module.exports = {
 }
 ```
 
-defaultFluentUIPluginOptions  can be imported from **'@tailwindcss/fluentui/plugins/options'**
+defaultFluentUIPluginOptions  can be imported from **'tailwindcss-fluentui/plugins/options'**
 
 ## Plugins
 
@@ -138,7 +138,7 @@ Usage
 }
 ```
 
-defaultAliasPluginOptions  can be imported from **'@tailwindcss/fluentui/plugins/options'**
+defaultAliasPluginOptions  can be imported from **'tailwindcss-fluentui/plugins/options'**
 
 ### Typography
 

@@ -6,7 +6,7 @@ import { TypographyStyle } from '../types'
 const typographyPlugin = plugin.withOptions<any>(
     function(options: any) { 
         return function(api: PluginAPI) {
-            log.info('@tailwindcss/fluentui:plugin:typography:handler')
+            log.info('tailwindcss-fluentui:plugin:typography:handler')
 
             api.matchUtilities<TypographyStyle>(
                 {
@@ -23,7 +23,7 @@ const typographyPlugin = plugin.withOptions<any>(
         }
     },
     function(options: any) {
-        log.info('@tailwindcss/fluentui:plugin:typography:config')
+        log.info('tailwindcss-fluentui:plugin:typography:config')
         return { 
             theme: {
                 fuiTypography:({ theme }: Pick<PluginUtils, 'theme'>) => ({

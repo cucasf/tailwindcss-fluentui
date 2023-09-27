@@ -5,7 +5,7 @@ import log from '../utils/log'
 const basePlugin = plugin.withOptions<any>(
     function(options: any) { 
         return function(api: PluginAPI) {
-            log.info('@tailwindcss/fluentui:plugin:base:handler')
+            log.info('tailwindcss-fluentui:plugin:base:handler')
             
             api.addBase(
                 {
@@ -29,7 +29,7 @@ const basePlugin = plugin.withOptions<any>(
         }
     },
     function(options: any) {
-        log.info('@tailwindcss/fluentui:plugin:base:config')
+        log.info('tailwindcss-fluentui:plugin:base:config')
         return {         
         }
     }

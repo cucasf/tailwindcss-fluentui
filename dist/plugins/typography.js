@@ -6,7 +6,7 @@ const plugin_1 = __importDefault(require("tailwindcss/plugin"));
 const log_1 = __importDefault(require("../utils/log"));
 const typographyPlugin = plugin_1.default.withOptions(function (options) {
     return function (api) {
-        log_1.default.info('@tailwindcss/fluentui:plugin:typography:handler');
+        log_1.default.info('tailwindcss-fluentui:plugin:typography:handler');
         api.matchUtilities({
             typo: (value) => {
                 let typographyStyle = value;
@@ -20,7 +20,7 @@ const typographyPlugin = plugin_1.default.withOptions(function (options) {
         }, { values: api.theme('fuiTypography') });
     };
 }, function (options) {
-    log_1.default.info('@tailwindcss/fluentui:plugin:typography:config');
+    log_1.default.info('tailwindcss-fluentui:plugin:typography:config');
     return {
         theme: {
             fuiTypography: ({ theme }) => ({

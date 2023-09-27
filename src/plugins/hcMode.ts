@@ -5,7 +5,7 @@ import log from '../utils/log'
 const hcModePlugin = plugin.withOptions<any>(
     function(options: any) { 
         return function(api: PluginAPI) {
-            log.info('@tailwindcss/fluentui:plugin:hcMode:handler')
+            log.info('tailwindcss-fluentui:plugin:hcMode:handler')
             
             let hcMode: string | [string, string] = api.config('hcMode', 'media')
 
@@ -21,7 +21,7 @@ const hcModePlugin = plugin.withOptions<any>(
         }
     },
     function(options: any) {
-        log.info('@tailwindcss/fluentui:plugin:hcMode:config')
+        log.info('tailwindcss-fluentui:plugin:hcMode:config')
         return {      
             hcMode: 'media'   
         }

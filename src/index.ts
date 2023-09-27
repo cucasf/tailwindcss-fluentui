@@ -10,11 +10,11 @@ import { defaultFluentUIPluginOptions } from './plugins/options'
 
 const fluetuiPlugin = plugin.withOptions<fluetuiPluginOptions>(
     function(options: fluetuiPluginOptions = defaultFluentUIPluginOptions) { return function(api: PluginAPI) {
-        log.info('@tailwindcss/fluentui:plugin:handler')
+        log.info('tailwindcss-fluentui:plugin:handler')
     }},
     
     function(options: fluetuiPluginOptions = defaultFluentUIPluginOptions) { 
-        log.info('@tailwindcss/fluentui:plugin:config')
+        log.info('tailwindcss-fluentui:plugin:config')
         
         let partialConfig:Partial<Config> = { theme: {} }     
 

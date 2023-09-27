@@ -8,10 +8,10 @@ const log_1 = __importDefault(require("./utils/log"));
 const options_1 = require("./plugins/options");
 const fluetuiPlugin = plugin_1.default.withOptions(function (options = options_1.defaultFluentUIPluginOptions) {
     return function (api) {
-        log_1.default.info('@tailwindcss/fluentui:plugin:handler');
+        log_1.default.info('tailwindcss-fluentui:plugin:handler');
     };
 }, function (options = options_1.defaultFluentUIPluginOptions) {
-    log_1.default.info('@tailwindcss/fluentui:plugin:config');
+    log_1.default.info('tailwindcss-fluentui:plugin:config');
     let partialConfig = { theme: {} };
     partialConfig.theme = (options === null || options === void 0 ? void 0 : options.extend) ? { extend: theme_1.fluentUITheme } : theme_1.fluentUITheme;
     // if (options.plugins?.typography) {

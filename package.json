@@ -1,5 +1,5 @@
 {
-  "name": "@tailwindcss/fluentui",
+  "name": "tailwindcss-fluentui",
   "version": "0.1.0",
   "description": "Fluen UI Theme",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import { defaultAliasPluginOptions } from '@tailwindcss/fluentui/plugins/options'
+import { defaultAliasPluginOptions } from 'tailwindcss-fluentui/plugins/options'
 
 const brand = {
   10: `#061724`,
@@ -35,11 +35,11 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/fluentui'),
-    require('@tailwindcss/fluentui/plugins/alias')(defaultAliasPluginOptions),
-    require('@tailwindcss/fluentui/plugins/typography'),
-    require('@tailwindcss/fluentui/plugins/base'),
-    require('@tailwindcss/fluentui/plugins/hcMode'),
+    require('tailwindcss-fluentui'),
+    require('tailwindcss-fluentui/plugins/alias')(defaultAliasPluginOptions),
+    require('tailwindcss-fluentui/plugins/typography'),
+    require('tailwindcss-fluentui/plugins/base'),
+    require('tailwindcss-fluentui/plugins/hcMode'),
 
   ],
 }

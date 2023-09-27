@@ -253,16 +253,16 @@ function GeneratePatchAliases(colors: RecursiveKeyValuePair, patch: Record<strin
 const aliasPlugin = plugin.withOptions<aliasPluginOptions>(
     function(options: aliasPluginOptions) { 
         return function(api: PluginAPI) {
-            log.info('@tailwindcss/fluentui:plugin:alias:handler')
+            log.info('tailwindcss-fluentui:plugin:alias:handler')
             
         }
     },
     function(options: aliasPluginOptions = defaultAliasPluginOptions) {
-        log.info('@tailwindcss/fluentui:plugin:alias:config')
+        log.info('tailwindcss-fluentui:plugin:alias:config')
 
         let colors = options.colors
         if (colors === undefined) {
-            log.warn('@tailwindcss/fluentui:plugin:alias:config:colors undefined')
+            log.warn('tailwindcss-fluentui:plugin:alias:config:colors undefined')
             return {}
         }
         

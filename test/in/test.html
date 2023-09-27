@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Tailwind CSS - Fluent UI Theme</title>
+    <link rel="stylesheet" href="../out/styles.css" />
+   <script src="//unpkg.com/alpinejs" defer></script>
+
+  </head>
+
+  <body>
+    <main>
+        <h1 class="typo-title1">TailwindCSS Fluent UI</h1>
+
+        <button class="bg-BrandBackground hover:bg-BrandBackgroundHover hover:active:bg-BrandBackgroundPressed">My Button</button>
+
+
+        <button class="bg-DangerBackground hover:bg-DangerBackground2 hover:active:bg-DangerBackground3">Danger Button</button>
+
+        <button class="bg-MagentaBackground2 hover:bg-MagentaForeground2 hover:active:bg-MagentaBorderActive 
+        dark:bg-MagentaBackground2-dark dark:hover:bg-MagentaForeground2-dark dark:hover:active:bg-MagentaBorderActive-dark
+        hc:bg-MagentaBackground2-hc hc:hover:bg-MagentaForeground2-hc hc:hover:active:bg-MagentaBorderActive-hc">
+          Danger Button
+        </button>
+        
+        <div class="dark">
+          <h3>Dark Class</h3>
+          <button class="bg-MagentaBackground2 hover:bg-MagentaForeground2 hover:active:bg-MagentaBorderActive 
+            dark:bg-MagentaBackground2-dark dark:hover:bg-MagentaForeground2-dark dark:hover:active:bg-MagentaBorderActive-dark
+            hc:bg-MagentaBackground2-hc hc:hover:bg-MagentaForeground2-hc hc:hover:active:bg-MagentaBorderActive-hc">
+            Danger Button
+          </button>
+        </div>
+
+        <div class="hc">
+          <h3 class="hc:text-BrandForegroundLink-hc hc:bg-BrandBackground-hc">HC Class</h3>
+        
+          <button class="bg-MagentaBackground2 hover:bg-MagentaForeground2 hover:active:bg-MagentaBorderActive 
+          dark:bg-MagentaBackground2-dark dark:hover:bg-MagentaForeground2-dark dark:hover:active:bg-MagentaBorderActive-dark
+          hc:bg-MagentaBackground2-hc hc:hover:bg-MagentaForeground2-hc hc:hover:active:bg-MagentaBorderActive-hc">
+            Danger Button
+          </button>
+        </div>
+
+    </main>
+  </body>
+</html>

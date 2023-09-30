@@ -1,10 +1,10 @@
 import { PluginAPI, PluginUtils } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import log from '../utils/log'
-import { TypographyStyle } from '../types'
+import { TypographyStyle, fluetuiPluginOptions } from '../types'
 
-const typographyPlugin = plugin.withOptions<any>(
-    function(options: any) { 
+const fluentuiTypographyPlugin = plugin.withOptions<fluetuiPluginOptions>(
+    function(options: fluetuiPluginOptions) { 
         return function(api: PluginAPI) {
             log.info('tailwindcss-fluentui:plugin:typography:handler')
 
@@ -22,7 +22,7 @@ const typographyPlugin = plugin.withOptions<any>(
             )
         }
     },
-    function(options: any) {
+    function(options: fluetuiPluginOptions) {
         log.info('tailwindcss-fluentui:plugin:typography:config')
         return { 
             theme: {
@@ -135,4 +135,4 @@ const typographyPlugin = plugin.withOptions<any>(
     }
 )
 
-export = typographyPlugin
+export = fluentuiTypographyPlugin

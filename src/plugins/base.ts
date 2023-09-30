@@ -1,10 +1,10 @@
 import { PluginAPI } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import log from '../utils/log'
-import { themes } from './options/defaultAliasPluginOptions'
+import { fluetuiPluginOptions } from '../types'
 
-const basePlugin = plugin.withOptions<any>(
-    function(options: any) { 
+const fluentuiBasePlugin = plugin.withOptions<fluetuiPluginOptions>(
+    function(options: fluetuiPluginOptions) { 
         return function(api: PluginAPI) {
             log.info('tailwindcss-fluentui:plugin:base:handler')
             
@@ -62,10 +62,10 @@ const basePlugin = plugin.withOptions<any>(
             )
         }
     },
-    function(options: any) {
+    function(options: fluetuiPluginOptions) {
         log.info('tailwindcss-fluentui:plugin:base:config')
         return { }
     }
 )
 
-export = basePlugin
+export = fluentuiBasePlugin

@@ -1,8 +1,8 @@
 import { CSSRuleObject, KeyValuePair, PluginAPI, RecursiveKeyValuePair } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import log from '../utils/log'
-import { AliasMapping, aliasPluginOptions } from '../types'
-import { defaultAliasPluginOptions } from './options'
+import { AliasMapping, aliasPluginOptions, fluetuiPluginOptions } from '../types'
+import { defaultFluentUIPluginOptions } from '../options'
 
 import '../utils/object.extend'
 
@@ -261,40 +261,42 @@ function GeneratePatchAliases(colors: RecursiveKeyValuePair, patch: Record<strin
 }
 
 function isInAliasGroup(aliasName: string, colorNames: string[]): boolean {
-    colorNames.forEach(colorName => {
+
+    for (let colorName of colorNames) {
         let c = colorName.slice(0, 1).toUpperCase() + colorName.slice(1)
-        if(aliasName.startsWith(c)) return true
-    })
+        if(aliasName.startsWith(c))
+        {
+            return true
+        }
+    }
     return false
 }
 
-const aliasPlugin = plugin.withOptions<aliasPluginOptions>(
-    function(options: aliasPluginOptions  = defaultAliasPluginOptions) { 
+const fluentuiAliasPlugin = plugin.withOptions<fluetuiPluginOptions>(
+    function(options: fluetuiPluginOptions  = defaultFluentUIPluginOptions) { 
         return function(api: PluginAPI) {
             log.info('tailwindcss-fluentui:plugin:alias:handler')
             if(options.cssProperties)
             {
-                let aliasNames = api.theme('fuiAliasNames') as string[]
-                let themes = options.themes ?? ['light']
-
-                let colorPalettes = options.alias.statusSharedColors.concat(options.alias.personaSharedColors)
-                let colorStatus = options.alias.mappedStatusColors
-
+                let aliasNames = api.config('fuiAliasNames') as string[]
                 if (aliasNames === undefined) {
                     log.warn('tailwindcss-fluentui:plugin:alias:handler:aliasNames undefined')
                     return
                 }
 
-                let cssProperties: KeyValuePair<string, KeyValuePair> = { }
-                
-                themes.forEach(theme => {
-                    cssProperties[theme] = {}
-                })
+                let themes = options.themes ?? ['light']
+                let colorPalettes = options.alias.statusSharedColors.concat(options.alias.personaSharedColors)
+                let colorStatus = options.alias.mappedStatusColors
+
+                let cssProperties: KeyValuePair<string, KeyValuePair> = themes.reduce((acc: KeyValuePair<string, KeyValuePair>, theme: string) => {
+                    acc[theme] = {}
+                    return acc
+                }, {})
 
                 aliasNames.forEach(aliasName => {
                     let cssProperty = ''
                     if(isInAliasGroup(aliasName, colorStatus))
-                    {
+                    {   
                         cssProperty = `--colorStatus${aliasName}`
                     }
                     else if(isInAliasGroup(aliasName, colorPalettes))
@@ -305,7 +307,6 @@ const aliasPlugin = plugin.withOptions<aliasPluginOptions>(
                     {
                         cssProperty = `--color${aliasName}`
                     }
-
                     themes.forEach(theme => {
                         cssProperties[theme][cssProperty] = api.theme(`colors.${aliasName}.${theme}`)
                     })
@@ -344,7 +345,7 @@ const aliasPlugin = plugin.withOptions<aliasPluginOptions>(
             }
         }
     },
-    function(options: aliasPluginOptions = defaultAliasPluginOptions) {
+    function(options: fluetuiPluginOptions = defaultFluentUIPluginOptions) {
         log.info('tailwindcss-fluentui:plugin:alias:config')
 
         let colors = options.colors
@@ -372,10 +373,11 @@ const aliasPlugin = plugin.withOptions<aliasPluginOptions>(
                     }
                 },
                 
-                fuiAliasNames: aliasNames
-            }  
+            }  ,
+
+            fuiAliasNames: aliasNames
         }
     }
 )
 
-export = aliasPlugin
+export = fluentuiAliasPlugin

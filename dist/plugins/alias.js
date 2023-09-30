@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const plugin_1 = __importDefault(require("tailwindcss/plugin"));
 const log_1 = __importDefault(require("../utils/log"));
-const options_1 = require("./options");
+const options_1 = require("../options");
 require("../utils/object.extend");
 const colorNeutralMapping = {
     'BackgroundOverlay': { light: 'blackAlpha.40', dark: 'blackAlpha.50', hc: 'blackAlpha.50' },
@@ -248,30 +248,31 @@ function GeneratePatchAliases(colors, patch, themes) {
     return aliases;
 }
 function isInAliasGroup(aliasName, colorNames) {
-    colorNames.forEach(colorName => {
+    for (let colorName of colorNames) {
         let c = colorName.slice(0, 1).toUpperCase() + colorName.slice(1);
-        if (aliasName.startsWith(c))
+        if (aliasName.startsWith(c)) {
             return true;
-    });
+        }
+    }
     return false;
 }
-const aliasPlugin = plugin_1.default.withOptions(function (options = options_1.defaultAliasPluginOptions) {
+const fluentuiAliasPlugin = plugin_1.default.withOptions(function (options = options_1.defaultFluentUIPluginOptions) {
     return function (api) {
         var _a;
         log_1.default.info('tailwindcss-fluentui:plugin:alias:handler');
         if (options.cssProperties) {
-            let aliasNames = api.theme('fuiAliasNames');
-            let themes = (_a = options.themes) !== null && _a !== void 0 ? _a : ['light'];
-            let colorPalettes = options.alias.statusSharedColors.concat(options.alias.personaSharedColors);
-            let colorStatus = options.alias.mappedStatusColors;
+            let aliasNames = api.config('fuiAliasNames');
             if (aliasNames === undefined) {
                 log_1.default.warn('tailwindcss-fluentui:plugin:alias:handler:aliasNames undefined');
                 return;
             }
-            let cssProperties = {};
-            themes.forEach(theme => {
-                cssProperties[theme] = {};
-            });
+            let themes = (_a = options.themes) !== null && _a !== void 0 ? _a : ['light'];
+            let colorPalettes = options.alias.statusSharedColors.concat(options.alias.personaSharedColors);
+            let colorStatus = options.alias.mappedStatusColors;
+            let cssProperties = themes.reduce((acc, theme) => {
+                acc[theme] = {};
+                return acc;
+            }, {});
             aliasNames.forEach(aliasName => {
                 let cssProperty = '';
                 if (isInAliasGroup(aliasName, colorStatus)) {
@@ -314,7 +315,7 @@ const aliasPlugin = plugin_1.default.withOptions(function (options = options_1.d
             api.addBase(cssRules);
         }
     };
-}, function (options = options_1.defaultAliasPluginOptions) {
+}, function (options = options_1.defaultFluentUIPluginOptions) {
     var _a, _b, _c, _d;
     log_1.default.info('tailwindcss-fluentui:plugin:alias:config');
     let colors = options.colors;
@@ -330,8 +331,8 @@ const aliasPlugin = plugin_1.default.withOptions(function (options = options_1.d
             extend: {
                 colors: Object.assign({}, aliases)
             },
-            fuiAliasNames: aliasNames
-        }
+        },
+        fuiAliasNames: aliasNames
     };
 });
-module.exports = aliasPlugin;
+module.exports = fluentuiAliasPlugin;

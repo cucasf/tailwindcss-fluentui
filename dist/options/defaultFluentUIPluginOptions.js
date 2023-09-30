@@ -1,10 +1,12 @@
-import { aliasPluginOptions } from '../../types'
-import colors from '../../colors'
-
-
-const defaultAliasPluginOptions: aliasPluginOptions = {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+const colors_1 = __importDefault(require("../colors"));
+const defaultFluentUIPluginOptions = {
+    extend: true,
     themes: ['light', 'dark', 'hc'],
-    colors: colors,
+    colors: colors_1.default,
     cssProperties: true,
     alias: {
         statusSharedColors: ['red', 'green', 'darkOrange', 'yellow', 'berry', 'lightGreen', 'marigold'],
@@ -14,8 +16,8 @@ const defaultAliasPluginOptions: aliasPluginOptions = {
             'blue', 'royalBlue', 'cornflower', 'navy', 'lavender', 'purple', 'grape',
             'lilac', 'pink', 'magenta', 'plum', 'beige', 'mink', 'platinum', 'anchor'
         ],
-        mappedStatusColors: ['danger','success','warning'],        
-        patch:{
+        mappedStatusColors: ['danger', 'success', 'warning'],
+        patch: {
             light: {
                 'YellowForeground1': 'yellow.shade30',
                 'RedForegroundInverted': 'red.tint20',
@@ -49,7 +51,12 @@ const defaultAliasPluginOptions: aliasPluginOptions = {
                 'YellowForegroundInverted': 'hc.canvasText',
             }
         }
+    },
+    plugins: {
+        alias: true,
+        hcMode: true,
+        extend: true,
+        base: true
     }
-}
-
-export = defaultAliasPluginOptions
+};
+module.exports = defaultFluentUIPluginOptions;

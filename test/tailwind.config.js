@@ -36,10 +36,10 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-fluentui'),
-    require('tailwindcss-fluentui/plugins/alias')(defaultAliasPluginOptions),
-    require('tailwindcss-fluentui/plugins/typography'),
-    require('tailwindcss-fluentui/plugins/base'),
-    require('tailwindcss-fluentui/plugins/hcMode'),
+    // require('tailwindcss-fluentui/plugins/alias')(defaultAliasPluginOptions),
+    // require('tailwindcss-fluentui/plugins/typography'),
+    // require('tailwindcss-fluentui/plugins/base'),
+    // require('tailwindcss-fluentui/plugins/hcMode'),
 
   ],
 }

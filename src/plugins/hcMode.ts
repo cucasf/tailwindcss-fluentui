@@ -1,9 +1,10 @@
 import { PluginAPI } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import log from '../utils/log'
+import { fluetuiPluginOptions } from '../types'
 
-const hcModePlugin = plugin.withOptions<any>(
-    function(options: any) { 
+const fluentuiHCModePlugin = plugin.withOptions<fluetuiPluginOptions>(
+    function(options: fluetuiPluginOptions) { 
         return function(api: PluginAPI) {
             log.info('tailwindcss-fluentui:plugin:hcMode:handler')
             
@@ -20,7 +21,7 @@ const hcModePlugin = plugin.withOptions<any>(
             api.addVariant('hc', hcCssVariant)
         }
     },
-    function(options: any) {
+    function(options: fluetuiPluginOptions) {
         log.info('tailwindcss-fluentui:plugin:hcMode:config')
         return {      
             hcMode: 'media'   
@@ -28,4 +29,4 @@ const hcModePlugin = plugin.withOptions<any>(
     }
 )
 
-export = hcModePlugin
+export = fluentuiHCModePlugin

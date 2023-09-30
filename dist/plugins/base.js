@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const plugin_1 = __importDefault(require("tailwindcss/plugin"));
 const log_1 = __importDefault(require("../utils/log"));
-const basePlugin = plugin_1.default.withOptions(function (options) {
+const fluentuiBasePlugin = plugin_1.default.withOptions(function (options) {
     return function (api) {
         log_1.default.info('tailwindcss-fluentui:plugin:base:handler');
         api.addBase({
@@ -56,4 +56,4 @@ const basePlugin = plugin_1.default.withOptions(function (options) {
     log_1.default.info('tailwindcss-fluentui:plugin:base:config');
     return {};
 });
-module.exports = basePlugin;
+module.exports = fluentuiBasePlugin;

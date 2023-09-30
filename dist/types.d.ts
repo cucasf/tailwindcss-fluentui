@@ -58,10 +58,6 @@ export type StatusColorVariants = {
     success?: ColorVariants;
     info?: ColorVariants;
 };
-export interface fluetuiPluginOptions {
-    extend?: boolean;
-    cssProperties: boolean;
-}
 export type AliasMapping = {
     [key: string]: KeyValuePair<string, string>;
 };
@@ -76,4 +72,12 @@ export interface aliasPluginOptions {
     colors: RecursiveKeyValuePair;
     alias: Alias;
     cssProperties: boolean;
+}
+export interface fluetuiPluginOptions {
+    extend?: boolean;
+    cssProperties: boolean;
+    themes: string[];
+    colors: RecursiveKeyValuePair;
+    alias: Alias;
+    plugins: KeyValuePair<string, boolean>;
 }

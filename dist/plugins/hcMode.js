@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const plugin_1 = __importDefault(require("tailwindcss/plugin"));
 const log_1 = __importDefault(require("../utils/log"));
-const hcModePlugin = plugin_1.default.withOptions(function (options) {
+const fluentuiHCModePlugin = plugin_1.default.withOptions(function (options) {
     return function (api) {
         log_1.default.info('tailwindcss-fluentui:plugin:hcMode:handler');
         let hcMode = api.config('hcMode', 'media');
@@ -23,4 +23,4 @@ const hcModePlugin = plugin_1.default.withOptions(function (options) {
         hcMode: 'media'
     };
 });
-module.exports = hcModePlugin;
+module.exports = fluentuiHCModePlugin;

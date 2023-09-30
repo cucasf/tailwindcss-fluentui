@@ -1,4 +1,4 @@
-import { KeyValuePair, RecursiveKeyValuePair, ThemeConfig } from "tailwindcss/types/config";
+import { Config, KeyValuePair, PluginCreator, RecursiveKeyValuePair, ThemeConfig } from "tailwindcss/types/config";
 
 /**
  * Possible color variant values
@@ -72,16 +72,10 @@ export type StatusColorVariants = {
     info?: ColorVariants;
 }
 
-export interface fluetuiPluginOptions {
-    extend?: boolean;
-    cssProperties: boolean;
-
-}
-
-
 export type AliasMapping = {
     [key: string]: KeyValuePair<string,string>;
 };
+
 export type Alias = {
     statusSharedColors: string[];
     personaSharedColors: string[];
@@ -95,3 +89,13 @@ export interface aliasPluginOptions  {
     alias: Alias;
     cssProperties: boolean;
 }
+
+export interface fluetuiPluginOptions {
+    extend?: boolean;
+    cssProperties: boolean;
+    themes: string[];
+    colors: RecursiveKeyValuePair;
+    alias: Alias;
+    plugins: KeyValuePair<string, boolean>;
+}
+

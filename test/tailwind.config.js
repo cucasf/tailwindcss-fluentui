@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import { defaultAliasPluginOptions } from 'tailwindcss-fluentui/plugins/options'
+import {defaultAliasPluginOptions} from 'tailwindcss-fluentui/plugins/options'
 
 const brand = {
   10: `#061724`,
@@ -27,7 +27,7 @@ defaultAliasPluginOptions.colors.brand = brand
 
 module.exports = {
   content: ['in/*.{html,js,css}'],
-  darkMode: 'class',
+  darkMode: 'media',
   hcMode: 'class',
   theme: {
     extend: {

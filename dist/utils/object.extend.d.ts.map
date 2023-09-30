@@ -1,0 +1,1 @@
+{"version":3,"file":"object.extend.d.ts","sourceRoot":"","sources":["../../src/utils/object.extend.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,CAAA;AACT,OAAO,CAAC,MAAM,CAAC;IACX,UAAU,iBAAiB;QACvB,QAAQ,CAAC,CAAC,EAAE,GAAG,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,CAAC,EAAE,GAAG,GAAG,GAAG,GAAG,SAAS,CAAC;KACzD;CACJ"}

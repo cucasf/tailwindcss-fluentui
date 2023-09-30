@@ -4,23 +4,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const colors_1 = __importDefault(require("./colors"));
 const fluentUITheme = {
-    borderRadius: {
+    borderRadius: ({}) => ({
         none: '0',
         small: '2px',
         medium: '4px',
         large: '6px',
         xLarge: '8px',
         circular: '10000px',
-    },
-    colors: colors_1.default,
-    fontFamily: {
+    }),
+    colors: ({}) => colors_1.default,
+    fontFamily: ({}) => ({
         // eslint-disable-next-line @fluentui/max-len
         base: ["'Segoe UI'", "'Segoe UI Web (West European)'", "-apple-system", "BlinkMacSystemFont", "Roboto", "'Helvetica Neue'", "sans-serif",],
         monospace: ["Consolas", "'Courier New'", "Courier", "monospace",],
         // eslint-disable-next-line @fluentui/max-len
         numeric: ["Bahnschrift", "'Segoe UI'", "'Segoe UI Web (West European)'", "-apple-system", "BlinkMacSystemFont", "Roboto", "'Helvetica Neue'", "sans-serif",],
-    },
-    fontSize: {
+    }),
+    fontSize: ({}) => ({
         base100: '10px',
         base200: '12px',
         base300: '14px',
@@ -31,14 +31,14 @@ const fluentUITheme = {
         hero800: '32px',
         hero900: '40px',
         hero1000: '68px',
-    },
-    fontWeight: {
+    }),
+    fontWeight: ({}) => ({
         regular: '400',
         medium: '500',
         semibold: '600',
         bold: '700',
-    },
-    lineHeight: {
+    }),
+    lineHeight: ({}) => ({
         base100: '14px',
         base200: '16px',
         base300: '20px',
@@ -49,8 +49,8 @@ const fluentUITheme = {
         hero800: '40px',
         hero900: '52px',
         hero1000: '92px',
-    },
-    spacing: {
+    }),
+    spacing: ({}) => ({
         none: '0',
         xxs: '2px',
         xs: '4px',
@@ -62,14 +62,14 @@ const fluentUITheme = {
         xl: '20px',
         xxl: '24px',
         xxxl: '32px',
-    },
-    strokeWidth: {
+    }),
+    strokeWidth: ({}) => ({
         thin: '1px',
         thick: '2px',
         thicker: '3px',
         thickest: '4px',
-    },
-    transitionTimingFunction: {
+    }),
+    transitionTimingFunction: ({}) => ({
         acceleratemax: 'cubic-bezier(1,0,1,1)',
         acceleratemid: 'cubic-bezier(0.7,0,1,0.5)',
         acceleratemin: 'cubic-bezier(0.8,0,1,1)',
@@ -79,8 +79,8 @@ const fluentUITheme = {
         easemax: 'cubic-bezier(0.8,0,0.1,1)',
         ease: 'cubic-bezier(0.33,0,0.67,1)',
         linear: 'cubic-bezier(0,0,1,1)',
-    },
-    transitionDuration: {
+    }),
+    transitionDuration: ({}) => ({
         ultrafast: '50ms',
         faster: '100ms',
         fast: '150ms',
@@ -89,6 +89,6 @@ const fluentUITheme = {
         slow: '300ms',
         slower: '400ms',
         ultraslow: '500ms',
-    },
+    }),
 };
 module.exports = fluentUITheme;

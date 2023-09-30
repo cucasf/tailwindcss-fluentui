@@ -4,8 +4,8 @@
   "description": "",
   "main": "postcss.config.js",
   "scripts": {
-    "test": "npx tsc -p ../ && tailwind -i tailwind.css -o out/styles.css --config tailwind.config.js --verbose --env development",
-    "test-watch": "npx tsc -p ../ && tailwind -i tailwind.css -o out/styles.css --config tailwind.config.js --watch --verbose"
+    "tcss": "npx tsc -p ../ && tailwind -i tailwind.css -o out/styles.css --config tailwind.config.js --verbose --env development",
+    "tcss-watch": "npx tsc -p ../ && tailwind -i tailwind.css -o out/styles.css --config tailwind.config.js --watch --verbose"
   },
   "author": "",
   "license": "ISC",

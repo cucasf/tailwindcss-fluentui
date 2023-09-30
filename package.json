@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Fluen UI Theme",
   "main": "./dist/index.js",
+  "types": "./dist/**/*.d.ts",
   "scripts": {
     "build": "npx tsc",
     "test": "npx tsc && tailwind -i test/tailwind.css -o test/out/styles.css --config test/tailwind.config.js --verbose --env development",
@@ -20,20 +21,43 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./colors": {
       "import": "./dist/colors.js",
-      "require": "./dist/colors.js"
+      "require": "./dist/colors.js",
+      "types": "./dist/colors.d.ts"
     },
-    "./plugins/*": "./dist/plugins/*.js",
+    "./plugins/alias": {
+      "import": "./dist/plugins/alias.js",
+      "require": "./dist/plugins/alias.js",
+      "types": "./dist/plugins/alias.d.ts"
+    },
+    "./plugins/base": {
+      "import": "./dist/plugins/base.js",
+      "require": "./dist/plugins/base.js",
+      "types": "./dist/plugins/base.d.ts"
+    },
+    "./plugins/typography": {
+      "import": "./dist/plugins/typography.js",
+      "require": "./dist/plugins/typography.js",
+      "types": "./dist/plugins/typography.d.ts"
+    },
+    "./plugins/hcMode": {
+      "import": "./dist/plugins/hcMode.js",
+      "require": "./dist/plugins/hcMode.js",
+      "types": "./dist/plugins/hcMode.d.ts"
+    },
     "./plugins/options": {
       "import": "./dist/plugins/options/index.js",
-      "require": "./dist/plugins/options/index.js"
+      "require": "./dist/plugins/options/index.js",
+      "types": "./dist/plugins/options/index.d.ts"
     },
     "./theme":{
       "import": "./dist/theme.js",
-      "require": "./dist/theme.js"
+      "require": "./dist/theme.js",
+      "types": "./dist/theme.d.ts"
     }
   },
     

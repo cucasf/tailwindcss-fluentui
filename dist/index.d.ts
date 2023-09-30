@@ -1,0 +1,10 @@
+import { Config, PluginCreator } from 'tailwindcss/types/config';
+import { fluetuiPluginOptions } from './types';
+declare const fluetuiPlugin: {
+    (options: fluetuiPluginOptions): {
+        handler: PluginCreator;
+        config?: Partial<Config> | undefined;
+    };
+    __isOptionsFunction: true;
+};
+export = fluetuiPlugin;

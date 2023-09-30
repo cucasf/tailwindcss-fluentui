@@ -74,6 +74,8 @@ export type StatusColorVariants = {
 
 export interface fluetuiPluginOptions {
     extend?: boolean;
+    cssProperties: boolean;
+
 }
 
 
@@ -91,4 +93,5 @@ export interface aliasPluginOptions  {
     themes: string[];
     colors: RecursiveKeyValuePair;
     alias: Alias;
+    cssProperties: boolean;
 }

@@ -5,6 +5,7 @@ import colors from '../../colors'
 const defaultAliasPluginOptions: aliasPluginOptions = {
     themes: ['light', 'dark', 'hc'],
     colors: colors,
+    cssProperties: true,
     alias: {
         statusSharedColors: ['red', 'green', 'darkOrange', 'yellow', 'berry', 'lightGreen', 'marigold'],
         personaSharedColors: [

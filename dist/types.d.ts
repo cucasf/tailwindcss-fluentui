@@ -77,6 +77,3 @@ export interface aliasPluginOptions {
     alias: Alias;
     cssProperties: boolean;
 }
-export interface cssPropertiesPluginOptions {
-    properties: Record<string, string[]>;
-}

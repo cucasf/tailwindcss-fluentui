@@ -45,7 +45,6 @@ const fluetuiPlugin = plugin_1.default.withOptions(function (options = options_1
                     }
                 }
             }
-            console.log(cssProperties);
             api.addBase({
                 ':root': cssProperties
             });

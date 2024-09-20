@@ -288,31 +288,33 @@ const fluentuiAliasPlugin = plugin_1.default.withOptions(function (options = opt
                     cssProperties[theme][cssProperty] = api.theme(`colors.${aliasName}.${theme}`);
                 });
             });
-            let cssRules = {};
-            themes.forEach(theme => {
-                if (theme === 'light') {
-                    cssRules[':root'] = cssProperties[theme];
+            if (themes.indexOf('light') > -1) {
+                api.addBase({
+                    [':root']: cssProperties['light']
+                });
+            }
+            if (themes.indexOf('dark') > -1) {
+                let cssRules = {};
+                let darkMode = api.config('darkMode', 'media');
+                if (darkMode === 'class' || Array.isArray(darkMode)) {
+                    cssRules[Array.isArray(darkMode) ? darkMode[1] : ':root .dark'] = cssProperties['dark'];
                 }
-                else if (theme === 'dark') {
-                    let darkMode = api.config('darkMode', 'media');
-                    if (darkMode === 'class' || Array.isArray(darkMode)) {
-                        cssRules[Array.isArray(darkMode) ? darkMode[1] : ':root .dark'] = cssProperties[theme];
-                    }
-                    else {
-                        cssRules['@media (prefers-color-scheme: dark)'] = { ':root': cssProperties[theme] };
-                    }
+                else {
+                    cssRules['@media (prefers-color-scheme: dark)'] = { ':root': cssProperties['dark'] };
                 }
-                else if (theme === 'hc') {
-                    let hcMode = api.config('hcMode', 'media');
-                    if (hcMode === 'class' || Array.isArray(hcMode)) {
-                        cssRules[Array.isArray(hcMode) ? hcMode[1] : ':root .hc'] = cssProperties[theme];
-                    }
-                    else {
-                        cssRules['@media screen and (-ms-high-contrast: active)'] = { ':root': cssProperties[theme] };
-                    }
+                api.addBase(cssRules);
+            }
+            if (themes.indexOf('hc') > -1) {
+                let cssRules = {};
+                let hcMode = api.config('hcMode', 'media');
+                if (hcMode === 'class' || Array.isArray(hcMode)) {
+                    cssRules[Array.isArray(hcMode) ? hcMode[1] : ':root .hc'] = cssProperties['hc'];
                 }
-            });
-            api.addBase(cssRules);
+                else {
+                    cssRules['@media screen and (-ms-high-contrast: active)'] = { ':root': cssProperties['hc'] };
+                }
+                api.addBase(cssRules);
+            }
         }
     };
 }, function (options = options_1.defaultFluentUIPluginOptions) {

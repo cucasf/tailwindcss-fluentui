@@ -56,7 +56,8 @@ const defaultFluentUIPluginOptions = {
         alias: true,
         hcMode: true,
         extend: true,
-        base: true
+        base: true,
+        typography: true,
     }
 };
 module.exports = defaultFluentUIPluginOptions;

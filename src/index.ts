@@ -63,8 +63,10 @@ const fluetuiPlugin = plugin.withOptions<fluetuiPluginOptions>(
             {
                 Object.assign(partialConfig.theme, typographyPlugin.config?.theme)
             }
+            else{
+                Object.assign(partialConfig, typographyPlugin.config)
+            }
 
-            Object.assign(partialConfig, typographyPlugin.config)
 
         }
         if(options.plugins.base)

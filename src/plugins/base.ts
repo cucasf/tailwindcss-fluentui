@@ -7,14 +7,14 @@ const fluentuiBasePlugin = plugin.withOptions<fluetuiPluginOptions>(
     function(options: fluetuiPluginOptions) { 
         return function(api: PluginAPI) {
             log.info('tailwindcss-fluentui:plugin:base:handler')
-            
+            let hasCSSProperties = options.cssProperties || false
             api.addBase(
                 {
                     'html':{
-                        'font-size': api.theme('fontSize.base300'),
-                        'font-family': api.theme('fontFamily.base'),
-                        'font-weight': api.theme('fontWeight.regular'),
-                        'line-height': api.theme('lineHeight.base300'),
+                        'font-size': hasCSSProperties ? 'var(--fontFamilyBase)' : api.theme('fontSize.base300'),
+                        'font-family': hasCSSProperties ? 'var(--fontSizeBase300)' : api.theme('fontFamily.base'),
+                        'font-weight': hasCSSProperties ? 'var(--fontWeightRegular)' : api.theme('fontWeight.regular'),
+                        'line-height': hasCSSProperties ? 'var(--lineHeightBase300)' : api.theme('lineHeight.base300'),
                     },
 
                     'button': {
@@ -26,28 +26,28 @@ const fluentuiBasePlugin = plugin.withOptions<fluetuiPluginOptions>(
                         'vertical-align': 'middle',
                         'margin':' 0px',
                         'overflow': 'hidden',
-                        'background-color': api.theme('colors.NeutralBackground1.DEFAULT'),
-                        'color': api.theme('colors.NeutralForeground1.DEFAULT'),
-                        'border': `${api.theme('strokeWidth.thin')} solid ${api.theme('colors.NeutralStroke1.DEFAULT')}`,
+                        'background-color': hasCSSProperties ? 'var(--colorNeutralBackground1)' : api.theme('colors.NeutralBackground1.DEFAULT'),
+                        'color':  hasCSSProperties ? 'var(--colorNeutralForeground1)' : api.theme('colors.NeutralForeground1.DEFAULT'),
+                        'border': hasCSSProperties ? 'var(--strokeWidthThin) solid var(--colorNeutralStroke1)' : `${api.theme('strokeWidth.thin')} solid ${api.theme('colors.NeutralStroke1.DEFAULT')}`,
                         'outline-style': 'none',
                         'min-width': '96px',
-                        'font-family':api.theme('fontFamily.base'),
-                        'font-size':api.theme('fontSize.base300'),
-                        'font-weight':api.theme('fontWeight.semibold'),
-                        'line-height':api.theme('lineHeight.base300'),
-                        'transition-duration': api.theme('transitionDuration.faster'),
+                        'font-family':  hasCSSProperties ? 'var(--fontFamilyBase)' : api.theme('fontFamily.base'),
+                        'font-size':  hasCSSProperties ? 'var(--fontSizeBase300)' : api.theme('fontSize.base300'),
+                        'font-weight':  hasCSSProperties ? 'var(--fontWeightSemibold)' : api.theme('fontWeight.semibold'),
+                        'line-height':  hasCSSProperties ? 'var(--lineHeightBase300)' : api.theme('lineHeight.base300'),
+                        'transition-duration': hasCSSProperties ? 'var(--durationFaster)' : api.theme('transitionDuration.faster'),
                         'transition-property': 'background, border,color',
-                        'transition-timing-function': api.theme('transitionTimingFunction.ease'),
-                        'border-radius': api.theme('borderRadius.medium'),
-                        'padding': `${api.theme('spacing.xs')} ${api.theme('spacing.m')}`,
+                        'transition-timing-function':  hasCSSProperties ? 'var(--curveEasyEase)' : api.theme('transitionTimingFunction.ease'),
+                        'border-radius': hasCSSProperties ? 'var(--borderRadiusMedium)' : api.theme('borderRadius.medium'),
+                        'padding': hasCSSProperties ? 'var(--spacingVerticalXXS) var(--spacingHorizontalM)' : `${api.theme('spacing.xs')} ${api.theme('spacing.m')}`,
                     },
 
                     'button:hover': {
-                        'background-color': api.theme('colors.NeutralBackground1Hover.DEFAULT'),
+                        'background-color': hasCSSProperties ? 'var(--colorNeutralBackground1Hover)' : api.theme('colors.NeutralBackground1Hover.DEFAULT'),
                     },
 
                     'button:hover:active': {
-                        'background-color': api.theme('colors.NeutralBackground1Pressed.DEFAULT'),
+                        'background-color': hasCSSProperties ? 'var(--colorNeutralBackground1Pressed)' :api.theme('colors.NeutralBackground1Pressed.DEFAULT'),
                     }
                 }
             )

@@ -29,6 +29,11 @@
       "require": "./dist/colors.js",
       "types": "./dist/colors.d.ts"
     },
+    "./plugins/theme": {
+      "import": "./dist/plugins/theme.js",
+      "require": "./dist/plugins/theme.js",
+      "types": "./dist/plugins/theme.d.ts"
+    },
     "./plugins/alias": {
       "import": "./dist/plugins/alias.js",
       "require": "./dist/plugins/alias.js",
@@ -49,10 +54,10 @@
       "require": "./dist/plugins/hcMode.js",
       "types": "./dist/plugins/hcMode.d.ts"
     },
-    "./plugins/options": {
-      "import": "./dist/plugins/options/index.js",
-      "require": "./dist/plugins/options/index.js",
-      "types": "./dist/plugins/options/index.d.ts"
+    "./options": {
+      "import": "./dist/options/index.js",
+      "require": "./dist/options/index.js",
+      "types": "./dist/options/index.d.ts"
     },
     "./theme":{
       "import": "./dist/theme.js",

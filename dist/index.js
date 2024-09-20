@@ -41,7 +41,9 @@ const fluetuiPlugin = plugin_1.default.withOptions(function (options = options_1
         if (partialConfig.theme !== undefined) {
             Object.assign(partialConfig.theme, (_k = typographyPlugin.config) === null || _k === void 0 ? void 0 : _k.theme);
         }
-        Object.assign(partialConfig, typographyPlugin.config);
+        else {
+            Object.assign(partialConfig, typographyPlugin.config);
+        }
     }
     if (options.plugins.base) {
         let basePlugin = (0, plugins_1.fluentuiBasePlugin)(options);
